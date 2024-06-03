@@ -1,0 +1,6 @@
+D:/Project/cmake/xcpp/src/xlog/out/bin/xlog.dll
+D:/Project/cmake/xcpp/src/xlog/out/include/xconfig.h
+D:/Project/cmake/xcpp/src/xlog/out/include/xlog.h
+D:/Project/cmake/xcpp/src/xlog/out/lib/config/xlog-1.0/xlogConfig.cmake
+D:/Project/cmake/xcpp/src/xlog/out/lib/config/xlog-1.0/xlogConfig-release.cmake
+D:/Project/cmake/xcpp/src/xlog/out/lib/config/xlog-1.0/xlogConfigVersion.cmake

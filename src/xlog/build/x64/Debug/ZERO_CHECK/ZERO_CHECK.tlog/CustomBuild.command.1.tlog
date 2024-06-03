@@ -1,0 +1,10 @@
+^D:\PROJECT\CMAKE\XCPP\SRC\XLOG\BUILD\CMAKEFILES\802D3DDCE8130D5BEB89AA19D324D360\GENERATE.STAMP.RULE
+setlocal
+D:\Software\CMake\bin\cmake.exe -SD:/Project/cmake/xcpp/src/xlog -BD:/Project/cmake/xcpp/src/xlog/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Project/cmake/xcpp/src/xlog/build/xlog.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
