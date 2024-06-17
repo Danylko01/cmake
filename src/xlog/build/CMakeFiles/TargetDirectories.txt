@@ -1,4 +1,0 @@
-D:/Project/cmake/xcpp/src/xlog/build/CMakeFiles/xlog.dir
-D:/Project/cmake/xcpp/src/xlog/build/CMakeFiles/INSTALL.dir
-D:/Project/cmake/xcpp/src/xlog/build/CMakeFiles/ALL_BUILD.dir
-D:/Project/cmake/xcpp/src/xlog/build/CMakeFiles/ZERO_CHECK.dir

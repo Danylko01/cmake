@@ -13,7 +13,7 @@ set(TYPE STATIC)
 if (XLOG_SHARED) 
 	set(TYPE SHARED)
 endif()
-
+message(${CMAKE_CURRENT_LIST_DIR})
 #cpp文件
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SRC)
 #h文件
