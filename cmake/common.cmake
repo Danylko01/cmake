@@ -92,7 +92,7 @@ function(cpp_test name)
     add_executable(${name} ${SRC})
     set_cpp(${name})
     set_target_properties(${name} PROPERTIES
-    MSVC_RUNTIME_LIBRARY MultiThreadedDebug
+        MSVC_RUNTIME_LIBRARY MultiThreadedDebug
     )
 
     # 查找gtest库 默认找不到 要找config文件
