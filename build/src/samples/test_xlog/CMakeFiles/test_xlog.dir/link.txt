@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_xlog.dir/test_xlog.cpp.o -o ../../../../bin/test_xlog   -L/home/danylko/Project/cmake/cmake/../lib  -Wl,-rpath,/home/danylko/Project/cmake/cmake/../lib:/home/danylko/Project/cmake/lib -lpthread ../../../../lib/libxlog.so -lpthread 

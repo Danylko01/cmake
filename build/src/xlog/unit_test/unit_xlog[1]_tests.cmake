@@ -1,0 +1,5 @@
+add_test( XLogTest.InitXLog /home/danylko/Project/cmake/bin/unit_xlog [==[--gtest_filter=XLogTest.InitXLog]==] --gtest_also_run_disabled_tests)
+set_tests_properties( XLogTest.InitXLog PROPERTIES WORKING_DIRECTORY /home/danylko/Project/cmake/build/src/xlog/unit_test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( XLogTest.WriteLog /home/danylko/Project/cmake/bin/unit_xlog [==[--gtest_filter=XLogTest.WriteLog]==] --gtest_also_run_disabled_tests)
+set_tests_properties( XLogTest.WriteLog PROPERTIES WORKING_DIRECTORY /home/danylko/Project/cmake/build/src/xlog/unit_test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( unit_xlog_TESTS XLogTest.InitXLog XLogTest.WriteLog)
