@@ -1,5 +1,0 @@
-if(EXISTS "/home/danylko/Project/cmake/build/src/xlog/unit_test/unit_xlog[1]_tests.cmake")
-  include("/home/danylko/Project/cmake/build/src/xlog/unit_test/unit_xlog[1]_tests.cmake")
-else()
-  add_test(unit_xlog_NOT_BUILT unit_xlog_NOT_BUILT)
-endif()

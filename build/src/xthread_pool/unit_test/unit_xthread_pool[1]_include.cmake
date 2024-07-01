@@ -1,5 +1,0 @@
-if(EXISTS "/home/danylko/Project/cmake/build/src/xthread_pool/unit_test/unit_xthread_pool[1]_tests.cmake")
-  include("/home/danylko/Project/cmake/build/src/xthread_pool/unit_test/unit_xthread_pool[1]_tests.cmake")
-else()
-  add_test(unit_xthread_pool_NOT_BUILT unit_xthread_pool_NOT_BUILT)
-endif()
