@@ -1,7 +1,0 @@
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/xlog.dir
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/edit_cache.dir
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/rebuild_cache.dir
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/list_install_components.dir
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/install.dir
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/install/local.dir
-/home/danylko/Project/cmake/src/xlog/build/CMakeFiles/install/strip.dir
