@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/danylko/Project/cmake/src/xlog/build",
+  "command": "/usr/bin/c++ -DXLOG_EXPORTS -Dxlog_EXPORTS -I/home/danylko/Project/cmake/src/xlog/include -I/home/danylko/Project/cmake/src/xlog -I/home/danylko/Project/cmake/src/xlog/../include -I/home/danylko/Project/cmake/src/xlog/.. -fPIC -o CMakeFiles/xlog.dir/xlog.cpp.o -c /home/danylko/Project/cmake/src/xlog/xlog.cpp",
+  "file": "/home/danylko/Project/cmake/src/xlog/xlog.cpp"
+},
+{
+  "directory": "/home/danylko/Project/cmake/src/xlog/build",
+  "command": "/usr/bin/c++ -DXLOG_EXPORTS -Dxlog_EXPORTS -I/home/danylko/Project/cmake/src/xlog/include -I/home/danylko/Project/cmake/src/xlog -I/home/danylko/Project/cmake/src/xlog/../include -I/home/danylko/Project/cmake/src/xlog/.. -fPIC -o CMakeFiles/xlog.dir/xlog_thread.cpp.o -c /home/danylko/Project/cmake/src/xlog/xlog_thread.cpp",
+  "file": "/home/danylko/Project/cmake/src/xlog/xlog_thread.cpp"
+}
+]

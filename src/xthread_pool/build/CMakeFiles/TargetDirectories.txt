@@ -1,0 +1,7 @@
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/xthread_pool.dir
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/edit_cache.dir
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/rebuild_cache.dir
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/list_install_components.dir
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/install.dir
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/install/local.dir
+/home/danylko/Project/cmake/src/xthread_pool/build/CMakeFiles/install/strip.dir

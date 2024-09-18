@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.22)
 project(xlog)
 include(${CMAKE_CURRENT_LIST_DIR}/../../cmake/common.cmake)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) 
 cpp_library(${PROJECT_NAME})
 
 #生成c++代码，传递命名空间
