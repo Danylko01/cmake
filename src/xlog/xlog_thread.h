@@ -7,6 +7,7 @@
 #include <mutex>
 #include <string>
 #include <queue>
+#include <condition_variable>
 
 _XCPP_NAMESPACE_
 
