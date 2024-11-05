@@ -1,17 +1,16 @@
-# cpp/cmake/common.cmake
-
 # 统一的命名空间
+# #cmakedefine _XCPP_NAMESPACE_ @_XCPP_NAMESPACE_@
 set(_XCPP_NAMESPACE_ "namespace xcpp {")
 
-# CMAKE_CURRENT_LIST_DIR是common.cmake的路径
+# ${CMAKE_CURRENT_LIST_DIR}是common.cmake的路径
 set(RUNTIME_DIR ${CMAKE_CURRENT_LIST_DIR}/../bin)
 set(LIBRARY_DIR ${CMAKE_CURRENT_LIST_DIR}/../lib)
 
 include(${CMAKE_CURRENT_LIST_DIR}/gtest.cmake)
 
-# 获取当前目录下的源码和头文件
+# 获取当前目录下源码和头文件
 macro(get_src_include)
-    # CMAKE_CURRENT_LIST_DIR是当前CMakeLists.txt文件所在路径
+    # CMAKE_CURRENT_LIST_DIR 当前CMakeLists.txt文件所在路径
     aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SRC)
 
     # 加入.h文件到编译依赖
@@ -23,19 +22,22 @@ endmacro()
 
 # 配置编译参数
 macro(set_cpp name)
+    # ############################################################
     # 设置头文件查找路径
     target_include_directories(${name} PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/include/
         ${CMAKE_CURRENT_LIST_DIR}
-        ${CMAKE_CURRENT_LIST_DIR}/../include/
+        ${CMAKE_CURRENT_LIST_DIR}/../include
         ${CMAKE_CURRENT_LIST_DIR}/../
     )
 
+    # ############################################################
     # 配置c++参数
     target_compile_features(${name} PRIVATE
         cxx_std_14
     )
 
+    # ############################################################
     # 配置vs属性 bigobj
     if(MSVC)
         set_target_properties(${name} PROPERTIES
@@ -43,8 +45,15 @@ macro(set_cpp name)
         )
     endif()
 
+    if(NOT WIN32)
+        target_link_libraries(${name} pthread)
+    endif()
+
+    # ############################################################
     # 输出路径配置 Debug和Release配置同一个路径
     # 默认为Debug
+    message("===============123  ${CMAKE_BUILD_TYPE}")
+
     if(CMAKE_BUILD_TYPE STREQUAL "")
         set(CMAKE_BUILD_TYPE Debug)
     endif()
@@ -58,6 +67,7 @@ macro(set_cpp name)
 
         if(type)
             string(TOUPPER _${type} conf)
+            message("conf = ${conf}")
         endif()
 
         set_target_properties(${name} PROPERTIES
@@ -68,11 +78,16 @@ macro(set_cpp name)
         )
     endforeach()
 
-    set_target_properties(${name} PROPERTIES
-        DEBUG_POSTFIX "d"
-    )
+    message("===============123 4 ${CMAKE_BUILD_TYPE}")
 
-    # 配置导入路径
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        # 设置debug添加d后缀
+        set_target_properties(${name} PROPERTIES
+            DEBUG_POSTFIX "d"
+        )
+    endif()
+
+    # 配置导入路径路径
     target_link_directories(${name} PRIVATE ${LIBRARY_DIR})
 
     set(debug_postfix "")
@@ -88,6 +103,7 @@ macro(set_cpp name)
 endmacro()
 
 function(cpp_test name)
+    message(STATUS "================ ${name} cpp_test =================")
     setup_gtest()
 
     # 获取当前目录下源码和头文件
@@ -99,6 +115,7 @@ function(cpp_test name)
 
     add_executable(${name} ${SRC})
     set_cpp(${name})
+
     set_target_properties(${name} PROPERTIES
         MSVC_RUNTIME_LIBRARY MultiThreadedDebug
     )
@@ -133,10 +150,15 @@ function(cpp_test name)
 
     # 打开才能运行ctest
     enable_testing()
+
+    message(STATUS "======================================================")
 endfunction()
 
-# 编译执行程序cpp_execute(<name> [lib1] [lib2...])
+# ###########################
+# ## 编译执行程序cpp_execute(<name> [lib1] [lib2...])
 function(cpp_execute name)
+    message(STATUS "================ ${name} cpp_execute =================")
+
     # 获取当前目录下源码和头文件
     get_src_include()
 
@@ -157,9 +179,14 @@ function(cpp_execute name)
             target_link_libraries(${name} ${lib_name}${debug_postfix})
         endforeach()
     endif()
+
+    message(STATUS "======================================================")
 endfunction()
 
 function(cpp_library name)
+    message(STATUS "================ ${name} cpp_library =================")
+
+    # ############################################################
     # 配置项目是否是动态库
     # 用户指定xlog是动态库还是静态库
     string(TOUPPER ${name} NAME)
@@ -171,14 +198,17 @@ function(cpp_library name)
         set(TYPE SHARED)
     endif()
 
+    # ############################################################
     # 查找项目的源码和头文件
     get_src_include()
 
+    # ############################################################
     # 生成库
     add_library(${name} ${TYPE} ${SRC} ${H_FILE} ${H_FILE_I})
 
     set_cpp(${name})
 
+    # ############################################################
     # 静态库和动态库传递不同的宏变量给c++
     # XLOG_STATIC XLOG_EXPORTS
     if(${NAME}_SHARED)
@@ -187,6 +217,7 @@ function(cpp_library name)
         target_compile_definitions(${name} PUBLIC ${NAME}_STATIC)
     endif()
 
+    # ############################################################
     # 库的安装配置
     # ${CMAKE_INSTALL_PREFIX}
     # cmake -S . -B build -D CMAKE_INSTALL_PREFIX=./out
@@ -224,4 +255,5 @@ function(cpp_library name)
     install(FILES ${CONF_VER_FILE}
         DESTINATION lib/config/${name}-${version}
     )
+    message(STATUS "======================================================")
 endfunction()
